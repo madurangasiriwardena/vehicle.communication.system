@@ -4,7 +4,10 @@ public class Main {
 	public static void main(String args[]) {
 		int send;
 		int receive;
-		if (args.length == 2) {
+		if(args.length == 1 && args[0].equalsIgnoreCase("init")){
+			Initializer.main(null);
+		}
+		else if (args.length == 2) {
 			send = Integer.parseInt(args[0]);
 			receive = Integer.parseInt(args[1]);
 

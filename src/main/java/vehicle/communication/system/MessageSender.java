@@ -25,7 +25,7 @@ public class MessageSender implements Runnable {
 	String host;
 	int port;
 
-	public MessageSender(String host, int port) {
+	public MessageSender(String host, int port, String uname) {
 		// Exists only to defeat instantiation.
 		this.host = host;
 		this.port = port;
@@ -50,7 +50,7 @@ public class MessageSender implements Runnable {
 			in.close();
 			fileIn.close();
 
-			user = new User("User2", issue, open, revoc);
+			user = new User(uname, issue, open, revoc);
 			user.join();
 
 		} catch (FileNotFoundException e) {
@@ -87,7 +87,7 @@ public class MessageSender implements Runnable {
 	}
 
 	public static void main(String args[]) throws IOException {
-		MessageSender nc = new MessageSender("127.0.0.1", 12346);
+		MessageSender nc = new MessageSender("127.0.0.1", 12346, "user");
 		nc.connect("127.0.0.1", 12346);
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("enter an integer");

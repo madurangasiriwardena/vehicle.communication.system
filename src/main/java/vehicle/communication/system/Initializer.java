@@ -1,5 +1,6 @@
 package vehicle.communication.system;
 
+import groupsignature.client.User;
 import groupsignature.server.IssuingManager;
 import groupsignature.server.OpeningManager;
 import groupsignature.server.RevocationManager;
@@ -15,7 +16,8 @@ public class Initializer {
 
 		RevocationManager revoc = new RevocationManager();
 		IssuingManager issue = new IssuingManager(revoc);
-		OpeningManager open = new OpeningManager(issue, revoc);
+		OpeningManager open = new OpeningManager(issue, revoc);		
+		
 		FileOutputStream fileOut;
 		try {
 //			File dir = new File("src/init-data");
@@ -25,12 +27,12 @@ public class Initializer {
 			out.writeObject(revoc);
 			out.close();
 			fileOut.close();
-
+			
 			fileOut = new FileOutputStream("IssuingManager");
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(issue);
 			out.close();
-			fileOut.close();
+			fileOut.close();	
 
 			fileOut = new FileOutputStream("OpeningManager");
 			out = new ObjectOutputStream(fileOut);

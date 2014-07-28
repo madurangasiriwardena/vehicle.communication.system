@@ -17,11 +17,12 @@
 
 package groupsignature.keys;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
 import groupsignature.elliptic.ECPoint;
 
-public class Mpk {
+public class Mpk implements Serializable{
 
 	private BigInteger A;
 	private BigInteger eprime;
